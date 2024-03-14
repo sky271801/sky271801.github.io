@@ -1,31 +1,98 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(45deg, #FFA07A, #FFD700, #00BFFF, #8A2BE2, #FF69B4, #FFA07A);
+            background-size: 600% 600%;
+            animation: gradient 15s ease infinite;
+            color: #fff;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 48px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .poem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            font-family: SimSun, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .signature {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
 <body>
+    <h1>Welcome to My Website</h1>
+    <div class="password-input">
+        <label for="password" style="color: #fff;">请输入密码：</label>
+        <input type="text" id="password" placeholder="密码" required>
+        <button onclick="checkPassword()" class="btn">进入</button>
+    </div>
+    <div class="poem" id="poem" style="display: none;">
+        春江潮水连海平，<br>
+        海上明月共潮生。<br>
+        滟滟随波千万里，<br>
+        何处春江无月明！<br>
+    </div>
+    <p class="signature">Created by Sky using ChatGPT on March 14, 2024</p>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "sky520") {
+                document.getElementById("poem").style.display = "block";
+                document.querySelector(".password-input").style.display = "none";
+            } else {
+                alert("密码错误，请重试。");
+            }
+        }
+    </script>
 </body>
-<style>
-body {
-    background-image: url('https://upload-bbs.miyoushe.com/upload/2022/04/21/289473607/1823a6b063cfb8c63f0f997cf09e533c_533899692945063051.png');
-    background-size:cover;
-    }
-</style>
-<title>原始人，启洞！</title>
-<p style="font-size:30px;color:azure;">你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。</p>
-<li style="font-size:30px"><a href="https://picdl.sunbangyan.cn/2023/10/07/na0kf.jpeg">天台风好大</a></li>
-<p style="color:black;font-size:60px">Author:Sky &nbsp;&nbsp; 2023.9.28</p>
-<img src="https://picss.sunbangyan.cn/2023/10/07/n9vva.jpg" 
-height="250"
-width="250"
-alt="-2652d2215b36d881.jpg" 
-title="-2652d2215b36d881.jpg" />
-<img src="https://i2.100024.xyz/2023/11/28/115igdm.webp" 
-height="500"
-width="800"
-alt="mmexport1701182119352" />
-<img src="https://i2.100024.xyz/2023/11/28/115jz5p.webp"
-height="500"
-width="800"
-alt="mmexport1701182181243" />
-<img src="https://i2.100024.xyz/2023/11/28/115uk7a.webp"
-height="500"
-width="800"
-alt="mmexport1701182206763" />
 </html>
