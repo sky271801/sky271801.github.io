@@ -42,52 +42,41 @@
             font-family: SimSun, sans-serif;
             text-align: center;
             margin-top: 4vw;
-            line-height: 1.5; /* 设置行高，确保每行只显示一行诗 */
+            line-height: 1.5;
         }
 
-        .poem span {
-            display: inline-block;
-            animation: shake 0.5s infinite alternate;
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translate(-2px, -2px) rotate(-2deg);
-            }
-            100% {
-                transform: translate(2px, 2px) rotate(2deg);
-            }
-        }
-
-        .signature {
-            font-size: 1.5vw;
-            color: #fff;
-            margin-top: 4vw;
-        }
-        /* 添加水印样式 */
+        /* 添加多个水印样式 */
         .watermark {
-            position: absolute;
-            bottom: 5vw;
-            right: 5vw;
             font-size: 10vw;
             color: rgba(255, 255, 255, 0.1);
             pointer-events: none;
-            z-index: 1; /* 将水印置于诗文之上 */
+            position: absolute;
+            z-index: 1;
         }
+        
+        .watermark1 { top: 5vw; right: 5vw; }
+        .watermark2 { top: 20vw; left: 10vw; }
+        .watermark3 { bottom: 15vw; right: 15vw; }
+        .watermark4 { bottom: 5vw; left: 5vw; }
+        .watermark5 { top: 35vw; right: 20vw; }
     </style>
 </head>
 <body>
     <h1>Welcome to My Website</h1>
     <div class="poem" id="poem"></div>
-    <p class="signature">Created by Sky using ChatGPT on March 14, 2024</p>
-    <!-- 添加水印 -->
-    <div class="watermark">Sky</div>
+
+    <!-- 添加多个水印 -->
+    <div class="watermark watermark1">Sky</div>
+    <div class="watermark watermark2">Sky</div>
+    <div class="watermark watermark3">Sky</div>
+    <div class="watermark watermark4">Sky</div>
+    <div class="watermark watermark5">Sky</div>
 
     <script>
         function renderPoem() {
             var poemContainer = document.getElementById("poem");
             var poemText = `春江潮水连海平，海上明月共潮生。
-                            滟滟随波千万里，何处春江无月明！
+                            滟滟随波千万里，何处春江无月明。
                             江流宛转绕芳甸，月照花林皆似霰。
                             空里流霜不觉飞，汀上白沙看不见。
                             江天一色无纤尘，皎皎空中孤月轮。
@@ -100,25 +89,23 @@
                             玉户帘中卷不去，捣衣砧上拂还来。
                             此时相望不相闻，愿逐月华流照君。
                             鸿雁长飞光不度，鱼龙潜跃水成文。
-                            昨夜闲潭梦落花，可怜春半不还家。`;
+                            昨夜闲潭梦落花，可怜春半不还家。
+                            江水流春去欲尽，江潭落月复西斜。
+                            斜月沉沉藏海雾，碣石潇湘无限路。
+                            不知乘月几人归，落月摇情满江树。`;
 
-            // 分割诗歌文字为单个汉字
             var poemLines = poemText.split('\n');
 
             // 将每行诗歌加入容器
             poemLines.forEach(function(line) {
                 var span = document.createElement('span');
                 span.textContent = line;
-                // 生成随机动画延迟时间
-                var delay = Math.random() * 1 + 0.5; // 随机生成0.5到1.5之间的数
-                span.style.animationDelay = delay + 's'; // 设置动画延迟时间
                 poemContainer.appendChild(span);
                 var br = document.createElement('br');
                 poemContainer.appendChild(br);
             });
         }
 
-        // 在页面加载后渲染诗歌
         window.onload = renderPoem;
     </script>
 </body>
