@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Only</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background: url('https://s3.mnat.cn/2025/01/03/6776be21d3baa.png') no-repeat top center fixed;
+background-size: 100% auto;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2); /* 黑色半透明背景，若不要可删除 */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #FFD700;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .poem {
+            margin-top: 30px;
+            font-style: italic;
+            color: #FFD700;
+        }
+
+        #hiddenText {
+            display: none; /* 默认隐藏 */
+            background: rgba(0, 0, 0, 0); /* 半透明遮罩背景 */
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #revealButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #revealButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>致我最喜欢的丽杰宝宝</h1>
+        <p>
+            因为你上学的时候不能看手机，所以这份惊喜只能请你在信息课的时候打开了，我怕我看到你在看我写给你的话而害羞，所以不好意思去帮你放，只能叫你自己打开这个网页了。
+        </p>
+        <p>
+            因为我一直没跟任何朋友明确说我们的关系，所以我找不到我朋友秀恩爱，我要狠狠地秀恩爱给你朋友看。
+            <br>（这里是复查内容的Sky，你如果怕害羞还是别给她们看了吧。）
+        </p>
+        
+        <!-- 隐藏内容部分 -->
+        <div id="hiddenText">
+            <p>
+                我喜欢你，幸好你也喜欢我，感谢你能大胆表白，不然以我的性格可能要错过了都不敢表达自己的心意。我记得我说过能做你的男朋友是我的荣幸，所以我不允许你产生我认为你拿不出手这种感觉！
+            </p>
+            <p>
+                在我心里，你一直都是那个特别的人，你的体贴、你的温柔、你的可爱，都是别人无法取代的，更重要的是，你绝对是我见过最有个性的女孩，你的思想世界丰富、情感世界丰富，你不仅善于表达自己的情感，也善于发现别人细微的情感。我以前一直是个情感封闭的人，但遇到你之后改变了许多，我变得更加关注自己的情感也更善于表达自己的情感。我想让你知道，不管什么时候，我都为能拥有你而骄傲，你是让我变得更好的动力，也因为你我开始更加注重自己的仪表，因为我怕我配不上可爱的你呢。
+            </p>
+            <p>
+                我想大声告诉你，我喜欢你，我特别喜欢你，我不想和你分开，如果以后我们又发生了冲突，我一定会及时反思自己并好好认错的，到时候能请你原谅我么(⑉• •⑉)♡？
+            </p>
+            <p>最后以两首小诗结尾吧</p>
+            <p class="poem">
+                I'll be a tree, if you are its flower.<br>
+                我愿是一棵树，假如你是树上的花；<br>
+                Or a flower, if you are the dew.<br>
+                我愿是一朵花，假如你是花上露珠；<br>
+                I'll be the dew, if you are the sunbeam.<br>
+                我愿是滴露珠，假如你是阳光一束；<br>
+                Only to be united with you.<br>
+                一切只为能与你一起，将此生共度。<br>
+                My lovely girl, if you are the Heaven, I shall be a star above on high;<br>
+                我可爱的女孩,假如你是一片天空,我愿意成为一颗星星，挂在那高处；<br>
+                My darling, if you are hell fire,<br>
+                我亲爱的人啊，假如你是地狱之火,只要能和你在一起，我愿以死相赴。<br><br>
+
+                我不要山风海月，<br>
+                不要五律七言，<br>
+                不要平仄、双关、用典，<br>
+                不要鹊踏枝，更不要春日宴。<br>
+                我只要一个你，就足够压过所有诗篇<br>
+                ——周自横
+            </p>
+            <a href="fireworks.html" style="display: inline-block; margin-top: 30px; font-size: 18px; color: blue; text-decoration: underline;">
+    点击查看独属于你的烟花（有点潦草，记得多看会有惊喜）
+</a>
+</a>
+        </div>
+        
+        <!-- 按钮 -->
+        <button id="revealButton">点击查看</button>
+    </div>
+
+    <script>
+        document.getElementById('revealButton').addEventListener('click', function() {
+            const hiddenText = document.getElementById('hiddenText');
+            hiddenText.style.display = 'block'; // 显示隐藏文本
+            this.style.display = 'none'; // 隐藏按钮
+        });
+    </script>
+</body>
+</html>

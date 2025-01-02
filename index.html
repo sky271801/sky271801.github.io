@@ -3,110 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>只给喜欢的人看！</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            color: white;
             text-align: center;
-            padding: 5vw;
-            background: linear-gradient(45deg, #FFA07A, #FFD700, #00BFFF, #8A2BE2, #FF69B4, #FFA07A);
-            background-size: 600% 600%;
-            animation: gradient 15s ease infinite;
-            color: #fff;
-            position: relative;
+            background: #000; /* 背景底色 */
+            overflow: hidden;
         }
-        
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://s3.mnat.cn/2025/01/02/67756ba9e7ce9.png') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.9; /* 设置背景图片的不透明度 */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0); /* 半透明覆盖层 */
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         h1 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 6vw;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 4vw;
+            margin-bottom: 20px;
         }
 
-        .poem {
-            font-size: 3vw;
-            font-family: SimSun, sans-serif;
-            text-align: center;
-            margin-top: 4vw;
-            line-height: 1.5;
+        input, button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
         }
 
-        /* 添加多个水印样式 */
-        .watermark {
-            font-size: 10vw;
-            color: rgba(255, 255, 255, 0.1);
-            pointer-events: none;
-            position: absolute;
-            z-index: 1;
+        input {
+            width: 200px;
         }
-        
-        .watermark1 { top: 5vw; right: 5vw; }
-        .watermark2 { top: 20vw; left: 10vw; }
-        .watermark3 { bottom: 15vw; right: 15vw; }
-        .watermark4 { bottom: 5vw; left: 5vw; }
-        .watermark5 { top: 35vw; right: 20vw; }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <div class="poem" id="poem"></div>
-
-    <!-- 添加多个水印 -->
-    <div class="watermark watermark1">Sky</div>
-    <div class="watermark watermark2">Sky</div>
-    <div class="watermark watermark3">Sky</div>
-    <div class="watermark watermark4">Sky</div>
-    <div class="watermark watermark5">Sky</div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>这里是Sky的个人网站</h1>
+        <p>请输入我最喜欢的人的生日（农历）</p>
+        <form id="passwordForm">
+            <input type="text" id="password" placeholder="例：五月十八" required>
+            <button type="submit">提交</button>
+        </form>
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+    </div>
 
     <script>
-        function renderPoem() {
-            var poemContainer = document.getElementById("poem");
-            var poemText = `春江潮水连海平，海上明月共潮生。
-                            滟滟随波千万里，何处春江无月明。
-                            江流宛转绕芳甸，月照花林皆似霰。
-                            空里流霜不觉飞，汀上白沙看不见。
-                            江天一色无纤尘，皎皎空中孤月轮。
-                            江畔何人初见月？江月何年初照人？
-                            人生代代无穷已，江月年年望相似。
-                            不知江月待何人，但见长江送流水。
-                            白云一片去悠悠，青枫浦上不胜愁。
-                            谁家今夜扁舟子？何处相思明月楼？
-                            可怜楼上月裴回，应照离人妆镜台。
-                            玉户帘中卷不去，捣衣砧上拂还来。
-                            此时相望不相闻，愿逐月华流照君。
-                            鸿雁长飞光不度，鱼龙潜跃水成文。
-                            昨夜闲潭梦落花，可怜春半不还家。
-                            江水流春去欲尽，江潭落月复西斜。
-                            斜月沉沉藏海雾，碣石潇湘无限路。
-                            不知乘月几人归，落月摇情满江树。`;
-
-            var poemLines = poemText.split('\n');
-
-            // 将每行诗歌加入容器
-            poemLines.forEach(function(line) {
-                var span = document.createElement('span');
-                span.textContent = line;
-                poemContainer.appendChild(span);
-                var br = document.createElement('br');
-                poemContainer.appendChild(br);
-            });
-        }
-
-        window.onload = renderPoem;
+        document.getElementById('passwordForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value.trim();
+            if (password === '三月二十') {
+                window.location.href = 'success.html'; // 替换为正确页面链接
+            } else {
+                window.location.href = 'error.html'; // 替换为错误页面链接
+            }
+        });
     </script>
 </body>
 </html>
